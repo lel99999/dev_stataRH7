@@ -3,8 +3,8 @@
     custom_repo: true
     deploy_iptables: true
     envir: dev
-# vars_files:
-#   - ~/RHACCOUNT
+  vars_files:
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
 
@@ -23,48 +23,10 @@
   tasks:
     - name: Install Development Tools
       shell:  yum groupinstall "Development Tools" -y
-    - name: Install JAVA OpenJDK 1.8
-      shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
   roles:
-    - epel7
-#   - emacsRH7
-#   - openjdk1.8
-#   - odbc
-#   - postgresql-client
-    - devtools7
-    - python2RH7
-    - python3RH7
-    - pyenvRH7
-    - pycharm7
-#   - gocd7
-#   - stattransfer14
-    - r_RH7
-    - r-studio-desktopRH7
-    - r-studio-serverRH7
-    - r-studio-server-configRH7
-    - r-shinyRH7
-    - r-shiny-configRH7
-
-# hosts: research_python
-# become: yes
-# become_method: sudo
-# roles:
-#   - devtools
-#   - devtools6
-#   - {role: python, when: "custom_repo"}
-#   - {role: python-build, when: "not custom_repo"}
-#   - {role: python3, when: "custom_repo"}
-#   - {role: python3-build, when: "not custom_repo"}
-#   - {role: python-libs}
-#   - postgresql-client
-#   - r-core
-#   - r-libs
-#   - r-studio-desktop
-#   - r-studio-server
-#   - r-studio-server-config
-#   - pycharm
-#   - gocd
+#   - epel7
+    - stataRH7
 #   - stattransfer14
 
 
