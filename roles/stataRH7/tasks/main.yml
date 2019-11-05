@@ -45,19 +45,38 @@
   tags:
     - stata
 
-- name: Install pip
-  yum:
-    name: python-pip
-    state: present
-  tags:
-    - stata
+- name: SCL Enable Pip Install Upgrade Pip
+  shell: |
+    scl enable python27 -- pip install --upgrade pip
+  become: yes
+  become_method: sudo
 
-- name: pip install pexpect
-  pip:
-    name: pexpect
-    executable: /usr/bin/pip
-  tags:
-    - stata
+# Already Installed with RHEL 7
+#- name: SCL Enable Pip Install virtualenvwrapper
+#  shell: |
+#    scl enable python27 -- pip install virtualenvwrapper
+#  become: yes
+#  become_method: sudo
+
+#- name: Install pip
+#  yum:
+#    name: python-pip
+#    state: present
+#  tags:
+#    - stata
+
+#- name: pip install pexpect
+#  pip:
+#    name: pexpect
+#    executable: /usr/bin/pip
+#  tags:
+#    - stata
+
+- name: SCL Enable Pip Install pexpect 
+  shell: |
+    scl enable python27 -- pip install pexpect 
+  become: yes
+  become_method: sudo
 
 - name: expect install
   expect:
