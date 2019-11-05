@@ -78,6 +78,32 @@
   become: yes
   become_method: sudo
 
+#- name: Install pip
+#  yum:
+#    name: python-pip
+#    state: present
+#  tags:
+#    - stata
+
+- name: SCL Enable Pip Install Upgrade Pip
+  shell: |
+    scl enable python27 -- pip install --upgrade pip
+  become: yes
+  become_method: sudo
+
+- name: Pip Install pexpect
+  shell: |
+    scl enable python27 -- pip install pexpect
+  become: yes
+  become_method: sudo
+  
+#- name: pip install pexpect
+#  pip:
+#    name: pexpect
+#    executable: /usr/bin/pip
+#  tags:
+#    - stata
+
 - name: expect install
   expect:
     chdir: "{{ stata_install_directory }}"
