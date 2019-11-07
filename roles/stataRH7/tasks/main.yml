@@ -28,10 +28,23 @@
   tags:
     - stata
 
+- name: Install gdown for remote download
+  become: yes
+  become_method: sudo
+  shell: |
+    scl enable python27 -- pip install gdown 
+
+- name: use gdown to download tar file
+  shell: gdown https://drive.google.com/uc?id=1yB-zBR55s_9eOfOVgfU6doXYk_YP_FAw -O /tmp/Stata16Linux64.tar.gz
+# shell: gdown https://drive.google.com/uc?id=1qaZH9_SrGyjHjWT3P2WtvZAhEkP9YG1Z -O /tmp/ancilRH7_repo.tar.gz
+#     when: stage == "DEV_LOCAL"
+#       stage values = { "DEV_LOCAL","DEV", "PROD" }
+
 - name: Unarchive the stata tarball
   unarchive:
     copy: yes
-    src: "{{ stata_local_bin_directory }}/{{ stata_tarball }}"
+    src: "/tmp/{{ stata_tarball }}"
+#   src: "{{ stata_local_bin_directory }}/{{ stata_tarball }}"
     dest: "{{ stata_install_directory }}/"
   when: custom_repo
   tags:
