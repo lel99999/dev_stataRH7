@@ -3,6 +3,7 @@ Vagrant.configure("2") do |config|
     v.memory = "1024"
     v.cpus = 2
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "70"]
+#   v.default_nic_type = "82543GC"
   end
 # config.trigger.after :up do |trigger|
 #   run "subscription-manager register --username <username> --password <password> --auto-attach
@@ -15,6 +16,7 @@ Vagrant.configure("2") do |config|
     stataRH7.vm.box = "clouddood/RH7.5_baserepo"
     stataRH7.vm.hostname = "stataRH7"
     stataRH7.vm.network "private_network", ip: "192.168.60.157"
+#   stataRH7.vm.network "private_network", ip: "192.168.60.157", nic_type: "virtio"
     stataRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.157 stataRH7.local stataRH7' >> /etc/hosts"
     stataRH7.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_stataRH7.yml"
