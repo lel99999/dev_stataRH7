@@ -27,12 +27,14 @@
       register: enabled_repos
     - debug:
         msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
   tasks:
     - name: Install Development Tools
       shell:  yum groupinstall "Development Tools" -y
 
   roles:
-#   - epel7
+    - epel7
+#   - python3RH7
     - stataRH7
 #   - stattransfer14
 
