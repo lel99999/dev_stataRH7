@@ -30,7 +30,10 @@
 
   tasks:
     - name: Install Development Tools
-      shell:  yum groupinstall "Development Tools" -y
+      yum:
+        name: "@Development Tools"
+        state: present
+#     shell:  yum groupinstall "Development Tools" -y
 
   roles:
     - epel7
