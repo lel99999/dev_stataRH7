@@ -1,2 +1,2 @@
 # dev_stataRH7
-Stata deployment and development on RH7
+Stata 16 deployment and development on RH7
