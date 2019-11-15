@@ -28,13 +28,13 @@
   tags:
     - stata
 
-- name: Install python pip
+- name: Install python3 pip
   yum:
-    name: python-pip
+    name: python3-pip
     state: present
 
 - name: Install gdown for remote download
-  pip:
+  pip3:
     name: gdown
     state: latest
  
@@ -45,7 +45,7 @@
 #   scl enable python27 -- pip install gdown 
 
 - name: use gdown to download tar file
-  shell: gdown https://drive.google.com/uc?id=1yB-zBR55s_9eOfOVgfU6doXYk_YP_FAw -O /tmp/Stata16Linux64.tar.gz
+  shell: /usr/local/bin/gdown https://drive.google.com/uc?id=1yB-zBR55s_9eOfOVgfU6doXYk_YP_FAw -O /tmp/Stata16Linux64.tar.gz
 # shell: gdown https://drive.google.com/uc?id=1qaZH9_SrGyjHjWT3P2WtvZAhEkP9YG1Z -O /tmp/ancilRH7_repo.tar.gz
 #     when: stage == "DEV_LOCAL"
 #       stage values = { "DEV_LOCAL","DEV", "PROD" }
@@ -169,7 +169,8 @@
 - name: expect stinit
   expect:
     chdir: "{{ stata_install_directory }}"
-    command: /bin/bash -c ./stinit
+    command: /bin/bash -c /usr/local/stata16/stinit
+#   command: /bin/bash -c ./stinit
     responses:
       '.*Do you agree to the License terms.*': 'Y'
       '.*Do you wish to continue.*': 'Y'
