@@ -169,7 +169,7 @@
 
 - name: expect stinit
   expect:
-    chdir: "{{ stata_install_directory }}"
+#   chdir: "{{ stata_install_directory }}"
     command: /bin/bash -c /usr/local/stata16/stinit
 #   command: /bin/bash -c ./stinit
     responses:
