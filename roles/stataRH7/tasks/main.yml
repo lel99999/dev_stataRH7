@@ -13,10 +13,10 @@
     path: "{{ stata_install_directory }}/{{ item }}"
     state: absent
   with_items:
-    - installed.150
+    - installed.160
     - stata
     - xstata
-    - isstata.150
+    - isstata.160
     - ado.tar
     - ado.tar.Z
     - base.tar
@@ -25,8 +25,13 @@
     - bins.tar.Z
     - docs.tar
     - docs.tar.Z
+  register: stata16_installed
   tags:
     - stata
+
+- debug: 
+    var:  stata16_installed.stdout
+    verbosity: 2
 
 - name: Install python3 pip
   yum:
