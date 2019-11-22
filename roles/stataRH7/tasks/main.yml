@@ -25,13 +25,17 @@
     - bins.tar.Z
     - docs.tar
     - docs.tar.Z
-  register: stata16_installed
   tags:
     - stata
+      
+- name: Check install status
+  stat:
+    path: /usr/local/stata16/installed.160
+  register: stata16_installed
 
 - debug: 
-    var:  stata16_installed.stdout
-    verbosity: 2
+    var:  stata16_installed.stat.exists
+#   verbosity: 2
 
 - name: Install python3 pip
   yum:
