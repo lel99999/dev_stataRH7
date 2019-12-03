@@ -100,9 +100,10 @@
 #    - stata
 
 - name: pip install pexpect
-  pip:
-    name: pexpect
-    executable: /usr/bin/pip
+  shell: pip3 install pexpect
+# pip:
+#   name: pexpect
+#   executable: /usr/bin/pip
   tags:
     - stata
 
