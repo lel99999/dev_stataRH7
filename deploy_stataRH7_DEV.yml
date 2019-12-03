@@ -1,0 +1,72 @@
+- hosts: wdcdevrestal03
+  vars:
+    custom_repo: true
+    deploy_iptables: true
+    envir: dev
+  vars_files:
+    - ~/RHACCOUNT
+  become: yes
+  become_method: sudo
+
+  pre_tasks:
+    - debug:
+#       msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
+        msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
+    - name: register RHEL7.5
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
+#     when: _uid != "" and _pwd != ""
+#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
+    - name: register RHEL7 repo
+      command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
+    - name: register RHEL7 RHSCL Repo
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms"
+    - name: register RHEL7 DevTools
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
+    - name: list RHEL enabled repos
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+    - debug:
+        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
+  tasks:
+    - name: Install Development Tools
+      yum:
+        name: "@Development Tools"
+        state: present
+#     shell:  yum groupinstall "Development Tools" -y
+    - name: Install X Windows
+      yum:
+        name: "@X Window System"
+        state: present 
+    - name: Install wget
+      yum:
+        name: wget
+        state: present
+    - name: Install Latest EPEL
+      shell:  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -O /tmp/epel-release-latest-7.noarch.rpm
+    - name: Install epel
+      shell:  yum -y localinstall /tmp/epel*rpm
+    - name: Install XFCE
+      yum:
+        name: "@Xfce"
+        state: present
+        disable_gpg_check: yes
+
+  roles:
+    - epel7
+#   - python3RH7
+    - stataRH7
+#   - stattransfer14
+
+
+
+  post_tasks:
+#   - name: register mime types
+#     shell: update-mime-database /usr/share/mime/packages/
+
+#   - name: remove RHEL7.5
+#     command:  "/usr/bin/subscription-manager remove --all"
+#   - name: unregister RHEL7.5
+#     command:  "/usr/bin/subscription-manager unregister"
+#   - name: clean RHEL7.5
+#     command:  "/usr/bin/subscription-manager clean"7
