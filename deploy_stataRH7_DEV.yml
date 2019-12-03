@@ -3,7 +3,7 @@
     custom_repo: true
     deploy_iptables: true
     envir: dev
-  vars_files:
+# vars_files:
 #    - ~/RHACCOUNT
   become: yes
   become_method: sudo
