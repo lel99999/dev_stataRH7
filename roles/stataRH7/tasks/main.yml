@@ -122,7 +122,7 @@
     - python2-ptyprocess
     - python3-devel
 #   - python3-pytest
-    - python3-ptyprocess
+    - python3*-ptyprocess
 
 # shell: pip3 install pexpect
 # pip:
