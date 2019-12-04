@@ -121,7 +121,7 @@
   with_items:
     - python2-ptyprocess
     - python3-devel
-    - python3-pytest
+#   - python3-pytest
     - python3-ptyprocess
 
 # shell: pip3 install pexpect
