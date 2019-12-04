@@ -111,7 +111,12 @@
 
 - name: SCL enable Pip Install Pexpect
   shell: |
-    scl enable python27 -- pip install pexpect python2-ptyprocess*
+    scl enable python27 -- pip install pexpect 
+
+- name: Install ptyprocess
+  yum:
+    name: python2-ptyprocess
+    state: present
 
 # shell: pip3 install pexpect
 # pip:
