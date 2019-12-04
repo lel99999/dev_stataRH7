@@ -115,8 +115,14 @@
 
 - name: Install ptyprocess
   yum:
-    name: python2-ptyprocess
+    name: "{{ item }}" 
+#   name: python2-ptyprocess
     state: present
+  with_items:
+    - python2-ptyprocess
+    - python3-devel
+    - python3-pytest
+    - python3-ptyprocess
 
 # shell: pip3 install pexpect
 # pip:
