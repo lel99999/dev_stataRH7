@@ -155,7 +155,8 @@
 - name: expect install stata16
   expect:
     chdir: "{{ stata_install_directory }}"
-    command: /bin/bash -c ./install
+#   command: /bin/bash -c ./install
+    command: /bin/bash -c /usr/local/stata16/install
     timeout: 200
     responses:
         '.*Do you wish to continue.*': 'y'
