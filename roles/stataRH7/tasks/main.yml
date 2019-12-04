@@ -149,10 +149,13 @@
         '.*Are you sure you want to install into*': 'y' 
         '.*Okay to proceed.*': 'y'
   register: expected
-  failed_when: expected.rc != 0 and "no action taken" not in expected.stdout
+# failed_when: expected.rc != 0 and "no action taken" not in expected.stdout
   when: custom_repo
   tags:
     - stata
+- debug: msg="{{ expected.rc }}"
+
+#- debug: msg="{{ expected.stdout }}"
 
 - name: Add the update do file
   template:
