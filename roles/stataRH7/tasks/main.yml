@@ -98,9 +98,13 @@
 #    state: present
 #  tags:
 #    - stata
+ 
+- name: SCL enable
+  shell:  source /opt/rh/devtoolset-7/enable
 
 - name: pip install pexpect
-  shell: pip3 install pexpect
+  shell: pip install pexpect
+# shell: pip3 install pexpect
 # pip:
 #   name: pexpect
 #   executable: /usr/bin/pip
@@ -149,10 +153,11 @@
         '.*Are you sure you want to install into*': 'y' 
         '.*Okay to proceed.*': 'y'
   register: expected
-# failed_when: expected.rc != 0 and "no action taken" not in expected.stdout
+  failed_when: expected.rc != 0 and "no action taken" not in expected.stdout
   when: custom_repo
   tags:
     - stata
+
 - debug: msg="{{ expected.rc }}"
 
 #- debug: msg="{{ expected.stdout }}"
