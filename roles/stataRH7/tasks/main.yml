@@ -102,8 +102,17 @@
 - name: SCL enable
   shell:  source /opt/rh/devtoolset-7/enable
 
-- name: pip install pexpect
-  shell: pip install pexpect
+#- name: pip install pexpect
+# shell: pip install pexpect
+
+- name: SCL enable Pip Install Upgrade Pip
+  shell: |
+    scl enable python27 -- pip install --upgrade pip
+
+- name: SCL enable Pip Install Pexpect
+  shell: |
+    scl enable python27 -- pip install pexpect
+
 # shell: pip3 install pexpect
 # pip:
 #   name: pexpect
