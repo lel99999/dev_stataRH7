@@ -16,12 +16,13 @@
   tags:
     - devtools7
 
-- name: Start using devtools
-  become: yes
-  become_method: sudo
-  command: scl enable devtoolset-7 bash
-  tags:
-    - devtools7
+# Remove as it causes ansible hang ... add it to startup
+#- name: Start using devtools
+#  become: yes
+#  become_method: sudo
+#  command: scl enable devtoolset-7 bash
+#  tags:
+#    - devtools7
 
 # CentOS
 #- name: Install devtools repo
