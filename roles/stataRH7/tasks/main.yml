@@ -131,9 +131,10 @@
   tags:
     - stata
 
-- name: SCL Enable shell
-  shell: scl enable pythob27 bash &
-
+#- name: SCL Enable shell
+# shell: scl enable pythob27 bash &
+- name: Pip (fully qualify path) install pexpect
+  shell: /opt/rh/python27/root/usr/bin/pip install pexpect
 
 #- name: Install pip
 #  yum:
@@ -154,7 +155,10 @@
   expect:
     chdir: "{{ stata_install_directory }}"
 #   command: /bin/bash -c ./install
-    command: /bin/bash -c /usr/local/stata16/install
+#   command: /bin/bash -c /usr/local/stata16/install
+    shell: |
+      scl enable python27 bash
+      /bin/bash -c /usr/local/stata16/install
     timeout: 200
     responses:
         '.*Do you wish to continue.*': 'y'
