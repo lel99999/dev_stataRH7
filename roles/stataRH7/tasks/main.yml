@@ -131,6 +131,10 @@
   tags:
     - stata
 
+- name: SCL Enable shell
+  shell: scl enable pythob27 bash &
+
+
 #- name: Install pip
 #  yum:
 #    name: python-pip
