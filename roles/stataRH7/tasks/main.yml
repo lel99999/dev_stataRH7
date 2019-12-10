@@ -160,7 +160,7 @@
   expect:
     chdir: "{{ stata_install_directory }}"
 #   command: /bin/bash -c ./install
-   command: /bin/bash -c /usr/local/stata16/install
+    command: /bin/bash -c /usr/local/stata16/install
 #    shell: |
 #      scl enable python27 bash
 #      /bin/bash -c /usr/local/stata16/install
