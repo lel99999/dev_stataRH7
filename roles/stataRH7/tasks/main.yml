@@ -109,9 +109,14 @@
   shell: |
     scl enable python27 -- pip install --upgrade pip
 
-- name: SCL enable Pip Install Pexpect
-  shell: |
-    scl enable python27 -- pip install pexpect 
+#- name: SCL enable Pip Install Pexpect
+#  shell: |
+#    scl enable python27 -- pip install pexpect 
+    
+- name: Install python2 pip
+  yum:
+    name: python2-pip
+    state: present
 
 - name: Install ptyprocess
   yum:
@@ -128,13 +133,13 @@
 # pip:
 #   name: pexpect
 #   executable: /usr/bin/pip
-  tags:
-    - stata
+#  tags:
+#    - stata
 
 #- name: SCL Enable shell
 # shell: scl enable pythob27 bash &
 - name: Pip (fully qualify path) install pexpect
-  shell: /opt/rh/python27/root/usr/bin/pip install pexpect
+  shell: pip install pexpect
 
 #- name: Install pip
 #  yum:
