@@ -99,15 +99,15 @@
 #  tags:
 #    - stata
  
-- name: SCL enable
-  shell:  source /opt/rh/devtoolset-7/enable
+# name: SCL enable
+# shell:  source /opt/rh/devtoolset-7/enable
 
 #- name: pip install pexpect
 # shell: pip install pexpect
 
-- name: SCL enable Pip Install Upgrade Pip
-  shell: |
-    scl enable python27 -- pip install --upgrade pip
+# name: SCL enable Pip Install Upgrade Pip
+# shell: |
+#   scl enable python27 -- pip install --upgrade pip
 
 #- name: SCL enable Pip Install Pexpect
 #  shell: |
@@ -138,7 +138,7 @@
 
 #- name: SCL Enable shell
 # shell: scl enable pythob27 bash &
-- name: Pip (fully qualify path) install pexpect
+- name: Pip install pexpect
   shell: pip install pexpect
 
 #- name: Install pip
@@ -148,7 +148,7 @@
 #  tags:
 #    - stata
   
-- name: pip install pexpect
+- name: Pip3 install pexpect
   shell: pip3 install pexpect
 # pip:
 #   name: pexpect

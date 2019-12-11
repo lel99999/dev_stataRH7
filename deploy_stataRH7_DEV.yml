@@ -54,8 +54,8 @@
 
   roles:
     - epel7
-    - python2RH7
-    - python3RH7
+#   - python2RH7
+#   - python3RH7
     - devtools7
     - stataRH7
 #   - stattransfer14
