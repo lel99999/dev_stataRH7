@@ -1,4 +1,4 @@
-- hosts: wdcdevrestal02
+- hosts: wdcresdstatl03
   vars:
     custom_repo: true
     deploy_iptables: true
