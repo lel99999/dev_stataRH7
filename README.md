@@ -18,3 +18,18 @@ make -j$(nproc) && make install
 ### Post Installation
 export PATH=/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
+
+## Libraray Updates:
+Get gcc-libstdc++-4.9.1-1.ram0.99.x86_64.rpm
+https://sourceforge.net/projects/ramonelinux/files/Rel_0.99/releases/x86_64/packages/
+
+### Extract
+$ rpm2cpio gcc-libstdc++-4.9.1-1.ram0.99.x86_64.rpm | cpio -idmv
+
+### Copy to location
+$sudo cp libstdc++.so.6.0.20 to /usr/lib64/
+
+### Remove and re-create symlinks to new library
+$cd /usr/lib64/
+#rm libstdc++.so.6
+#ln -s libstdc++.so.6.0.20 libstdc++.so.6
