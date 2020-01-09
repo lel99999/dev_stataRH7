@@ -19,7 +19,7 @@ make -j$(nproc) && make install
 export PATH=/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 
-## Libraray Updates:
+## Library Updates:
 Get gcc-libstdc++-4.9.1-1.ram0.99.x86_64.rpm
 https://sourceforge.net/projects/ramonelinux/files/Rel_0.99/releases/x86_64/packages/
 
