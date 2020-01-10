@@ -33,17 +33,18 @@ $sudo cp libstdc++.so.6.0.20 to /usr/lib64/
 $cd /usr/lib64/
 #rm libstdc++.so.6
 #ln -s libstdc++.so.6.0.20 libstdc++.so.6
+#ln -s libstdc++.so.6.0.21 libstdc++.so.6
 
 ### Additional Requirements
 #### libstdc++.so.6.0.21 for patchelf
 ####  https://github.com/NixOS/patchelf
 
 After successful compile, run commands:
-patchelf --set-rpath $HOME/local/stata-png-fix/lib xstata-mp
-patchelf --add-needed libpng16.so.16 xstata-mp
+$patchelf --set-rpath $HOME/local/stata-png-fix/lib xstata-mp
+$patchelf --add-needed libpng16.so.16 xstata-mp
 
 
 #### https://github.com/kylebarron/stata-png-fix
 #### require libpng16.so.16 to address the libpng error
 
-###Stata16 Gui requires JAVA (1.8 or higher) to be installed
+### Stata16 Gui requires JAVA (1.8 or higher) to be installed
