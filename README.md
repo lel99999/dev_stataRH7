@@ -47,4 +47,4 @@ $patchelf --add-needed libpng16.so.16 xstata-mp
 #### https://github.com/kylebarron/stata-png-fix
 #### require libpng16.so.16 to address the libpng error
 
-### Stata16 Gui requires JAVA (1.8 or higher) to be installed
+#### Stata16 Gui requires JAVA (1.8 or higher) to be installed
