@@ -260,3 +260,12 @@
     state: absent
   tags:
     - stata
+
+- name: Check do shared directory
+  stat:
+    path: /home/work/shared_ado
+  register: do_path
+
+- debug:
+    msg: "Shared Do Path Exists"
+  when: do_path.stat.exists and do_path.stat.isdir
