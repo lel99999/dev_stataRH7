@@ -1,0 +1,4 @@
+---
+dependencies:
+  - {role: epel7, when: "use_epel and not 'production' in group_names"}
+# - {role: epel, when: "use_epel and not 'production' in group_names"}
