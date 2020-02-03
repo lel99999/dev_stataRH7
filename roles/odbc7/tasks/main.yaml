@@ -17,34 +17,23 @@
   tags:
     - odbc
 
-- name: Check whether odbc.ini exists
-  stat:
-    path: /etc/odbc.ini
-  register: odbc_ini
-
-- name: Create odbc.ini if not exist
-  file:
-    path: /etc/odbc.ini      
-    state: touch
-  when: not odbc_ini.stat.exists
-
 - name: Configure odbc.ini
   template:
-    src: ../templates/odbc.ini
+    src: odbc.ini
     dest: /etc/odbc.ini
   tags:
     - odbc
 
 - name: Configure odbcinst.ini
   template:
-    src: ../templates/odbcinst.ini
+    src: odbcinst.ini
     dest: /etc/odbcinst.ini
   tags:
     - odbc
 
 - name: Configure freetds.conf
   template:
-    src: ../templates/freetds.conf
+    src: freetds.conf
     dest: /usr/local/etc/freetds.conf
   when: custom_repo
   tags:
