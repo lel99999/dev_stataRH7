@@ -48,3 +48,13 @@ $patchelf --add-needed libpng16.so.16 xstata-mp
 #### require libpng16.so.16 to address the libpng error
 
 #### Stata16 Gui requires JAVA (1.8 or higher) to be installed
+
+
+### Vagrant Notes
+### For local Vagrant provisioning
+$vagrant up --no-provision
+
+for specific provisioning parts:
+$vagrant provision --provision-with main
+$vagrant provision --provision-with update
+
