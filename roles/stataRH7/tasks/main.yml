@@ -45,6 +45,11 @@
   yum:
     name: mailx
     state: present
+
+- name: Install TexLive (LaTex)
+  yum:
+    name: texlive
+    state: present
     
 - name: Install python3 pip
   yum:
@@ -180,7 +185,7 @@
         '.*Okay to proceed.*': 'y'
   register: expected
 # failed_when: expected.rc != 0 and "no action taken" not in expected.stdout
-  when: custom_repo
+  when: custom_repo and stata16_installed.stat.exists == false
   tags:
     - stata
 
@@ -226,7 +231,7 @@
       '.*Enter what you would like the first line to say:.*': '{{ stata_line_one }}'
       '.*Enter what you would like the second line to say:.*': '{{ stata_line_two  }}'
       '.*Is this okay.*': 'Y'
-  when: custom_repo
+  when: custom_repo and stata16_installed.stat.exists == false
   tags:
     - stata
 
@@ -235,6 +240,7 @@
   template:
     src: configure_stata.sh
     dest: /etc/profile.d/configure_stata.sh
+  when: custom_repo and stata16_installed.stat.exists == false
   tags:
     - stata
 
@@ -243,6 +249,7 @@
     state: link
     src: "{{ stata_install_directory }}"
     dest: "{{ stata_directory }}"
+  when: custom_repo and stata16_installed.stat.exists == false
   tags:
     - stata
 
@@ -251,6 +258,7 @@
     src: sysprofile.do.j2
     dest: "{{ stata_directory }}/sysprofile.do"
     mode: 0644
+  when: custom_repo and stata16_installed.stat.exists == false
   tags:
     - stata
 
