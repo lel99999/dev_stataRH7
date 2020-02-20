@@ -1,4 +1,5 @@
-- hosts: wdcdevrestal02
+- hosts: research_python7
+  #- hosts: wdcdevrestal02
   vars:
     custom_repo: true
     deploy_iptables: true
