@@ -1,4 +1,4 @@
-- hosts: research_python7
+- hosts: research_stata7
   #- hosts: wdcdevrestal02
   vars:
     custom_repo: true
