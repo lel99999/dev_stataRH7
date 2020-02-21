@@ -12,7 +12,6 @@
   rpm_key:
     key: "{{ postgres_repository_key_url }}"
     state: present
-    disable_gpg_check: yes
   when: postgres_install_repository
   tags:
     - postgres_client
