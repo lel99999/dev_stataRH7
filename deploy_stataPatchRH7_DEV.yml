@@ -3,6 +3,7 @@
   vars:
     custom_repo: true
     deploy_iptables: true
+    postgres_install_repository: true
     envir: dev
 # vars_files:
 #    - ~/RHACCOUNT
