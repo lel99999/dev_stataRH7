@@ -12,6 +12,7 @@
   rpm_key:
     key: "{{ postgres_repository_key_url }}"
     state: present
+    disable_gpg_check: yes
   when: postgres_install_repository
   tags:
     - postgres_client
@@ -31,6 +32,7 @@
   yum:
     name: "{{ item }}"
     state: present
+    disable_gpg_check: yes
   with_items: "{{ postgres_packages }}"
   tags:
     - postgres_client
@@ -39,6 +41,7 @@
   yum:
     name: "{{ item }}"
     state: present
+    disable_gpg_check: yes
   with_items: "{{ postgres_gis_packages }}"
   ignore_errors: True
   tags:
