@@ -53,7 +53,7 @@
         disable_gpg_check: yes
 
   roles:
-    - epel7
+#   - epel7
 #   - python2RH7
 #   - python3RH7
 #   - devtools7
