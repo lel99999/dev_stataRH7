@@ -58,11 +58,12 @@
         state: present
 
   roles:
-    - epel7
+#   - epel7
 #   - python2RH7
 #   - python3RH7
 #   - devtools7
 #   - stataRH7
+    - postgresql-client7
     - odbc7
 #   - stattransfer14
 
