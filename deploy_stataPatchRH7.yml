@@ -52,6 +52,11 @@
         state: present
         disable_gpg_check: yes
 
+    - name: Install htop
+      yum:
+        name: htop
+        state: present
+
   roles:
     - epel7
 #   - python2RH7
