@@ -57,6 +57,11 @@
         name: htop
         state: present
 
+    - name: Install postgresql-libs
+      yum:
+        name: postgresql-libs
+        state: present
+
   roles:
 #   - epel7
 #   - python2RH7
