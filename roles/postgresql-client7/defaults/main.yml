@@ -12,6 +12,7 @@ postgres_install_repository: True
 postgres_packages:
   - postgresql10
   - postgresql10-devel
+  - postgresql10-libs
 
 postgres_gis_packages:
   - postgis24_10
