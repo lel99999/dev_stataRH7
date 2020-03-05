@@ -4,13 +4,6 @@ odbc_rpms:
   - unixODBC
   - unixODBC-devel
   - postgresql-odbc
-  - postgresql-libs
-  - postgresql94-odbc
-  - postgresql94-libs
-  - postgresql96-odbc
-  - postgresql96-libs
-  - postgresql96-devel
-
 
 odbc_ms_sql_hostname: host_ms_sql
 odbc_entries:
