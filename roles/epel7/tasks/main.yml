@@ -1,13 +1,13 @@
-# main.yml - Activate EPEL
 ---
-- name: Instell Latest EPEL 7 Release
- #  shell:  yum install "{{ epel_url }}" -y --nogpgcheck
+- name: Install Latest EPEL 7 Release
   yum:
     name: "{{ epel_url }}"
     state: present
     disable_gpg_check: yes
   tags:
     - epel7
+#  shell:  yum install "{{ epel_url }}" -y --nogpgcheck
+
 #- name: Get EPEL repo
 #  get_url:
 #    url: "{{ epel_path }}/{{ epel_rpm }}"
