@@ -78,7 +78,8 @@ Vagrant.configure("2") do |config|
 
     # Default
     stataRH7.vm.provision "main", type: "ansible" do |ansible|
-      ansible.playbook = "deploy_stataRH7_DEV.local.yml"
+#     ansible.playbook = "deploy_stataRH7_DEV.local.yml"
+      ansible.playbook = "deploy_stataRH7_DEV.yml"
 #     ansible.playbook = "deploy_stataTestRH7.yml"
       ansible.inventory_path = "vagrant_hosts"
       #ansible.tags = ansible_tags
