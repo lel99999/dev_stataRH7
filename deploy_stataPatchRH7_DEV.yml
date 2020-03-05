@@ -69,6 +69,12 @@
       yum:
         name: python-psycopg2
         state: present
+
+   - name: Install TexLive (LaTex)
+     yum:
+       name: texlive
+       status: present
+
   roles:
     - epel7
 #   - python2RH7

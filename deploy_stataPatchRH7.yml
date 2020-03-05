@@ -67,6 +67,10 @@
         name: python-psycopg2
         state: present
 
+   - name: Install TexLive (LaTex) 2013
+     yum:
+       name: texlive
+       state: present
   roles:
 #   - epel7
 #   - python2RH7
