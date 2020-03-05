@@ -30,7 +30,7 @@ $ rpm2cpio gcc-libstdc++-4.9.1-1.ram0.99.x86_64.rpm | cpio -idmv
 $sudo cp libstdc++.so.6.0.20 to /usr/lib64/
 
 ### Remove and re-create symlinks to new library
-$cd /usr/lib64/
+$cd /usr/lib64/ or /lib64
 #rm libstdc++.so.6
 #ln -s libstdc++.so.6.0.20 libstdc++.so.6
 #ln -s libstdc++.so.6.0.21 libstdc++.so.6
