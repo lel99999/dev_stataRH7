@@ -88,7 +88,8 @@
 - name: Set permissions for the install script
   file:
     path: "{{ stata_install_directory }}/install"
-    mode: 0755
+    mode: 0777
+#   mode: 0755
   when: custom_repo
   tags:
     - stata
