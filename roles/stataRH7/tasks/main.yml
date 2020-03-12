@@ -88,8 +88,7 @@
 - name: Set permissions for the install script
   file:
     path: "{{ stata_install_directory }}/install"
-    mode: 0777
-#   mode: 0755
+    mode: 0755
   when: custom_repo
   tags:
     - stata
@@ -155,6 +154,17 @@
 #   executable: /usr/bin/pip
 # tags:
 #   - stata
+ 
+- name: Set temporary permissions for the install script
+  file:
+    path: "/usr/local/stata16"
+    mode: 0777
+    state: directory
+    recurse: yes
+  when: custom_repo
+  tags:
+    - stata
+
 
 - name: expect install stata16
   become: yes
