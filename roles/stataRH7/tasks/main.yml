@@ -156,6 +156,8 @@
 #   - stata
 
 - name: expect install stata16
+  become: yes
+  become_method: sudo
   expect:
     chdir: "{{ stata_install_directory }}"
 #   command: /bin/bash -c ./install
