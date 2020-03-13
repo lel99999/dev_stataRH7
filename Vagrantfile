@@ -76,6 +76,8 @@ Vagrant.configure("2") do |config|
 #   stataRH7.vm.network "private_network", ip: "192.168.60.157", nic_type: "virtio"
     stataRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.157 stataRH7.local stataRH7' >> /etc/hosts"
 
+##  Use Main / Update in Vagrant provision command ### $vagrant provision --provision-with shell/main/update
+
     # Default
     stataRH7.vm.provision "main", type: "ansible" do |ansible|
 #     ansible.playbook = "deploy_stataRH7_DEV.local.yml"
