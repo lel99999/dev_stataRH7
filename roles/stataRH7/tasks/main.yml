@@ -155,16 +155,15 @@
 # tags:
 #   - stata
  
-- name: Set temporary permissions for the install script
-  file:
-    path: "/usr/local/stata16"
-    mode: 0777
-    state: directory
-    recurse: yes
-  when: custom_repo
-  tags:
-    - stata
-
+#- name: Set temporary permissions for the install script
+# file:
+#   path: "/usr/local/stata16"
+#   mode: 0777
+#   state: directory
+#   recurse: yes
+# when: custom_repo
+# tags:
+#   - stata
 
 - name: expect install stata16
   become: yes
