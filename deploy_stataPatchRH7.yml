@@ -23,7 +23,7 @@
     - name: register RHEL7 DevTools
       shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
     - name: register R EPEL repo
-      shell: "/usr/bin/subscription-manager repos --enable=r-epel-rhel-7-x86-64"
+      shell: "/usr/bin/subscription-manager repos --enable=cfpb_gov_epel-rhel7_r-epel-rhel-7-x86-64"
     - name: list RHEL enabled repos
       shell: "/usr/bin/subscription-manager repos --list-enabled"
       register: enabled_repos
