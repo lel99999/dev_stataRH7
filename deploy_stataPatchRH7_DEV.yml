@@ -73,7 +73,7 @@
    - name: Install TexLive (LaTex)
      yum:
        name: texlive
-       status: present
+       state: present
 
   roles:
     - epel7
