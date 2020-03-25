@@ -54,11 +54,17 @@
   tags:
     - postgres_client
 
+- name: Check if link exists
+  stat:
+    path: /usr/include/pgsql
+  register: plink
+
 - name: Ensure other libraries can see header files
   file:
     src: "{{ postgres_install_dir }}/include/"
     dest: /usr/include/pgsql
     state: link
+  when: pkink.stat.exists == False
   tags:
     - postgres_client
 
