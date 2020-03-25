@@ -59,6 +59,7 @@ After successful compile, run commands:<br/>
 
 #### To update Stata16 to latest
 in stata type **db update**<br/>
+**NOTE <stata16_installdir> needs to be writeable<br/>
 
 ### Vagrant Notes
 ### For local Vagrant provisioning
