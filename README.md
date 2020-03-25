@@ -57,6 +57,8 @@ After successful compile, run commands:<br/>
 
 #### Stata16 Gui requires JAVA (1.8 or higher) to be installed
 
+#### To update Stata16 to latest
+in stata type **db update**<br/>
 
 ### Vagrant Notes
 ### For local Vagrant provisioning
