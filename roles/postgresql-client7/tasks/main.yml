@@ -64,7 +64,7 @@
     src: "{{ postgres_install_dir }}/include/"
     dest: /usr/include/pgsql
     state: link
-  when: pkink.stat.exists == False
+  when: plink.stat.exists == False
   tags:
     - postgres_client
 
