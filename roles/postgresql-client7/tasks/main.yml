@@ -100,6 +100,6 @@
     src: "{{ postgres_install_dir }}"
     dest: /usr/pgsql
     state: link
-  when: usrlink.stat.exits == False
+  when: usrlink.stat.exists == False
   tags:
     - postgres_client
