@@ -54,7 +54,7 @@
   tags:
     - postgres_client
 
-- name: Check if link exists
+- name: Check if include link exists
   stat:
     path: /usr/include/pgsql
   register: plink
@@ -68,11 +68,17 @@
   tags:
     - postgres_client
 
+- name: Check if lib link exists
+  stat:
+    path: /usr/include/pgsql
+  register: liblink
+
 - name: Ensure other libraries can see library files
   file:
     src: "{{ postgres_install_dir }}/lib"
     dest: /usr/lib/pgsql
     state: link
+  when: liblink.stat.exists == False 
   tags:
     - postgres_client
 
@@ -83,11 +89,17 @@
     mode: 0644
   tags:
     - postgres_client
+ 
+- name: Check if usr link exists
+  stat:
+    path: /usr/include/pgsql
+  register: usrlink
 
 - name: Create a symlink that can remain constant during upgrades
   file:
     src: "{{ postgres_install_dir }}"
     dest: /usr/pgsql
     state: link
+  when: usrlink.stat.exits == False
   tags:
     - postgres_client
