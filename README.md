@@ -39,9 +39,9 @@ $cd /usr/lib64/ or /lib64
 #### libstdc++.so.6.0.21 for patchelf
 ####  https://github.com/NixOS/patchelf
 
-After successful compile, run commands:
-$patchelf --set-rpath $HOME/local/stata-png-fix/lib xstata-mp
-$patchelf --add-needed libpng16.so.16 xstata-mp
+After successful compile, run commands:<br/>
+`$patchelf --set-rpath $HOME/local/stata-png-fix/lib xstata-mp`<br/>
+`$patchelf --add-needed libpng16.so.16 xstata-mp`<br/>
 
 
 #### https://github.com/kylebarron/stata-png-fix
