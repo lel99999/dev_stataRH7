@@ -27,10 +27,11 @@ https://sourceforge.net/projects/ramonelinux/files/Rel_0.99/releases/x86_64/pack
 $ rpm2cpio gcc-libstdc++-4.9.1-1.ram0.99.x86_64.rpm | cpio -idmv
 
 ### Copy to location
-$sudo cp libstdc++.so.6.0.20 to /usr/lib64/
+`$sudo cp libstdc++.so.6.0.20 to /usr/lib64/`<br/>
 
 ### Remove and re-create symlinks to new library
-$cd /usr/lib64/ or /lib64
+`$cd /usr/lib64/ or /lib64`<br/>
+
 #rm libstdc++.so.6
 #ln -s libstdc++.so.6.0.20 libstdc++.so.6
 #ln -s libstdc++.so.6.0.21 libstdc++.so.6
@@ -46,6 +47,13 @@ After successful compile, run commands:<br/>
 
 #### https://github.com/kylebarron/stata-png-fix
 #### require libpng16.so.16 to address the libpng error
+`$cp -r <source>/stata-png-fix <stata16_installdir>`<br/>
+`$cd <stata16_installdir>/stata-png-fix`<br/>
+**NOTE: view README or edit stata-png-fixed.sh and set STATA_DIR=<stata16_installdir><br/>
+  need to copy libpng16.so.16.30.0 to /lib64<br/>
+  `$sudo ln -s /lib64/libpng16.so.16.30.0 libpng16.so.16`<br/>
+
+`$cd ./bash compile-stata-png-fix.sh`<br/>
 
 #### Stata16 Gui requires JAVA (1.8 or higher) to be installed
 
