@@ -1,9 +1,9 @@
 ---
-#- name: Make sure latest EPEL repo is installed
-# yum:
-#   name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-#   state: latest
-#   disable_gpg_check: yes
+- name: Make sure latest EPEL repo is installed
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: latest
+    disable_gpg_check: yes
 
 - name: Install postgres repository
   yum:
@@ -36,8 +36,8 @@
 - name: Install postgres packages
   yum:
     name: "{{ item }}"
-#   state: present
-    state: latest
+    state: present
+#   state: latest
     disable_gpg_check: yes
   with_items: "{{ postgres_packages }}"
   tags:
@@ -57,30 +57,30 @@
 - name: Check if include link exists
   stat:
     path: /usr/include/pgsql
-  register: plink
+  register: lpgsqlinclude
 
 - name: Ensure other libraries can see header files
   file:
     src: "{{ postgres_install_dir }}/include/"
     dest: /usr/include/pgsql
     state: link
-  when: plink.stat.exists == False
   tags:
     - postgres_client
+  when: lpgsqlinclude.stat.exists == false
 
 - name: Check if lib link exists
   stat:
     path: /usr/include/pgsql
-  register: liblink
+  register: lpgsqllib
 
 - name: Ensure other libraries can see library files
   file:
     src: "{{ postgres_install_dir }}/lib"
     dest: /usr/lib/pgsql
     state: link
-  when: liblink.stat.exists == False 
   tags:
     - postgres_client
+  when: lpgsqllib.stat.exists == false
 
 - name: Add psql bin directory to path
   template:
@@ -89,17 +89,11 @@
     mode: 0644
   tags:
     - postgres_client
- 
-- name: Check if usr link exists
-  stat:
-    path: /usr/include/pgsql
-  register: usrlink
 
 - name: Create a symlink that can remain constant during upgrades
   file:
     src: "{{ postgres_install_dir }}"
     dest: /usr/pgsql
     state: link
-  when: usrlink.stat.exists == False
   tags:
     - postgres_client
