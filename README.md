@@ -56,6 +56,7 @@ After successful compile, run commands:<br/>
 `$cd ./bash compile-stata-png-fix.sh`<br/>
 
 #### Stata16 Gui requires JAVA (1.8 or higher) to be installed
+`$java -version`<br/>
 
 #### To update Stata16 to latest
 in stata type **db update**<br/>
@@ -65,9 +66,9 @@ type **update all, force**. (this also addresses **ERROR: Java installation not 
 
 ### Vagrant Notes
 ### For local Vagrant provisioning
-$vagrant up --no-provision
+`$vagrant up --no-provision`<br/>
 
-for specific provisioning parts:
-$vagrant provision --provision-with main
-$vagrant provision --provision-with update
+for specific provisioning parts:<br/>
+`$vagrant provision --provision-with main`<br/>
+`$vagrant provision --provision-with update`<br/>
 
