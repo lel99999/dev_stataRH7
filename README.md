@@ -57,6 +57,7 @@ After successful compile, run commands:<br/>
 
 #### Stata16 Gui requires JAVA (1.8 or higher) to be installed
 `$java -version`<br/>
+![openjdk version 1.8](https://github.com/lel99999/dev_stataRH7/blob/master/java-version-01.PNG)
 
 #### To update Stata16 to latest
 in stata type **db update**<br/>
