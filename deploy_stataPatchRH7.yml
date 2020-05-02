@@ -73,6 +73,10 @@
       yum:
         name: texlive
         state: present
+
+    - name: Check odbc.ini, make sure readable
+      shell:  chmod +r /etc/odbc.ini
+      
   roles:
 #   - epel7
 #   - python2RH7
