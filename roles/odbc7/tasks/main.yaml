@@ -23,6 +23,13 @@
     dest: /etc/odbc.ini
   tags:
     - odbc
+    
+- name: make odbc.ini readable
+  file:
+    path: /etc/odbc.ini
+    owner: root
+    group: root
+    mode: '0744'
 
 - name: Configure odbcinst.ini
   template:
