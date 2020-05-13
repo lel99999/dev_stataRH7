@@ -5,6 +5,26 @@
     state: latest
     disable_gpg_check: yes
 
+#- name: Install postgres repository for 9.4
+#  yum:
+#    name: "(( postgresq94_repository_url }}"
+#    state: present
+#    disable_gpg_check: yes
+
+- name: Install postgres 9.4 packages on RHEL 7
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - rh-postgresql94
+    - rh-postgresql94-runtime
+    - rh-postgresql94-scldevel
+    - rh-postgresql94-postgresql-devel
+    - rh-postgresql94-postgresql-libs
+    - rh-postgresql94-postgresql-static
+    - rh-postgresql94-postgresql-plpython
+    - rh-postgresql94-postgresql-contrib
+
 - name: Install postgres repository
   yum:
     name: "{{ postgres_repository_url }}"
@@ -32,6 +52,12 @@
   when: clean_postgresql
   tags:
     - postgres_client
+
+- name: Add 94 yum repo
+  yum_repository:
+    name: postgres94
+    description: postgresql 94 repo for RHEL 7
+    baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/
 
 - name: Install postgres packages
   yum:
