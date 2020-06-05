@@ -23,6 +23,7 @@ postgres_gis_packages:
 postgres_old_packages:
   - postgresql96
   - postgresql96-libs
+  - postgresql96-odbc
 # - postgis22
   - postgis24_96
 
