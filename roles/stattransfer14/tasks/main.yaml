@@ -15,30 +15,31 @@
   tags:
     - stattransfer
 
-- name: Change owner  permissions
-  shell: chown -R root:root {{stattransfer_local_bin_directory}}/stlinux64_install
+#- name: Change owner  permissions
+#  shell: chown -R root:root {{stattransfer_local_bin_directory}}/stlinux64_install
 
-- name: Change folder/file permissions
-  shell: chmod +x {{stattransfer_local_bin_directory}}/stlinux64_install
+#- name: Change folder/file permissions
+#  shell: chmod +x {{stattransfer_local_bin_directory}}/stlinux64_install
 
-#- name: Copy over the install bin
-# copy:
-#   src: "{{stattransfer_local_bin_directory}}/stlinux64_install"
-#   dest: "{{stattransfer_install_directory}}/stlinux64_install"
-# when: custom_repo
-# tags:
-#   - stattransfer
+- name: Copy over the install bin
+  copy:
+    src: "{{stattransfer_local_bin_directory}}/stlinux64_install"
+    dest: "{{stattransfer_install_directory}}/stlinux64_install"
+  when: custom_repo
+  tags:
+    - stattransfer
 
-#- name: Set the install bin to be executable
-# file:
-#   path: "{{stattransfer_install_directory}}/stlinux64_install"
-#   mode: a+x
-# when: custom_repo
-# tags:
-#   - stattransfer
+- name: Set the install bin to be executable
+  file:
+    path: "{{stattransfer_install_directory}}/stlinux64_install"
+    mode: a+x
+  when: custom_repo
+  tags:
+    - stattransfer
 
 - name: Run install bin
-  shell: "{{ stattransfer_local_bin_directory }}/stlinux64_install --mode silent"
+  shell: "{{ stattransfer_install_directory }}/stlinux64_install --mode silent"
+# shell: "{{ stattransfer_local_bin_directory }}/stlinux64_install --mode silent"
   args:
     chdir: "{{ stattransfer_install_directory }}"
     creates: "{{ stattransfer_install_directory }}/stattransfer"
