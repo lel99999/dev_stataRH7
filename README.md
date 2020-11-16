@@ -59,6 +59,9 @@ After successful compile, run commands:<br/>
 `$java -version`<br/>
 ![openjdk version 1.8](https://github.com/lel99999/dev_stataRH7/blob/master/java-version-01.PNG)
 
+#### Install JAVA (openJDK 1.8)
+`$sudo yum install java-1.8.0-openjdk -y` <br/>
+
 #### To update Stata16 to latest
 in stata type **db update**<br/>
 or<br/>
