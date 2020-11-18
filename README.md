@@ -33,7 +33,7 @@ https://sourceforge.net/projects/ramonelinux/files/Rel_0.99/releases/x86_64/pack
 `$cd /usr/lib64/ or /lib64`<br/>
 
 `#rm libstdc++.so.6`<br/>
-`#ln -s libstdc++.so.6.0.20 libstdc++.so.6`<br/>
+`#ln -s libstdc++.so.6.0.20 libstdc++.so.6` *** Use the latest .21 *** <br/>
 `#ln -s libstdc++.so.6.0.21 libstdc++.so.6`<br/>
 
 ### Additional Requirements
