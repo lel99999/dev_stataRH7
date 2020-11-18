@@ -63,6 +63,7 @@ After successful compile, run commands:<br/>
 `$sudo yum install java-1.8.0-openjdk -y` <br/>
 
 #### To update Stata16 to latest
+*** NOTE: Stata <installdir> needs to be writeable *** <br/>
 in stata type **db update**<br/>
 or<br/>
 type **update all, force**. (this also addresses **ERROR: Java installation not found**)<br/>
