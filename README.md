@@ -77,3 +77,9 @@ for specific provisioning parts:<br/>
 `$vagrant provision --provision-with main`<br/>
 `$vagrant provision --provision-with update`<br/>
 
+#### Running Ansible Playbook on localhost prompt for sudo 
+```
+$ansible-playbook playbook_localhost.yml -kK
+SSH password:
+BECOME password[defaults to SSH password]:
+```
