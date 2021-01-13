@@ -21,9 +21,12 @@ postgres_gis_packages:
   - postgis24_10
 
 postgres_old_packages:
-  - postgresql96
-  - postgresql96-libs
-  - postgresql96-odbc
+  - rh-postgresql96
+  - rh-postgresql96-postgresql-libs
+  - postgresql-odbc
+# - postgresql96
+# - postgresql96-libs
+# - postgresql96-odbc
 # - postgis22
   - postgis24_96
 

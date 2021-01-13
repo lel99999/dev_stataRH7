@@ -25,6 +25,13 @@
     - rh-postgresql94-postgresql-plpython
     - rh-postgresql94-postgresql-contrib
 
+- name: Install postgres 9.6 repo
+  yum_repository:
+    name: postgresql9.6
+    description: postgresql 9.6 repo
+    baseurl: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7.9-x86_64/
+    gpgcheck: no
+
 - name: Install postgres 9.6 packages on RHEL 7
   yum:
     name: "{{ item }}"
@@ -35,6 +42,25 @@
     - postgresql96-devel
     - postgresql96-docs
     - postgresql96-contrib
+
+- name: Install postgres 10.x repo
+  yum_repository:
+    name: postgresql10.x
+    description: postgresql 10.x repo
+    baseurl: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/
+    gpgcheck: no
+
+- name: Install postgres 10.x packages on RHEL 7
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - postgresql10
+    - postgresql10-libs
+    - postgresql10-odbc
+    - postgresql10-devel
+    - postgresql10-docs
+    - postgresql10-contrib
 
 - name: Install postgres repository
   yum:
