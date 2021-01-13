@@ -44,6 +44,10 @@ After successful compile, run commands:<br/>
 `$patchelf --set-rpath $HOME/local/stata-png-fix/lib xstata-mp`<br/>
 `$patchelf --add-needed libpng16.so.16 xstata-mp`<br/>
 
+#### Updated *** NOTES *** Use included files instead of compile
+```
+$sudo cp /tmp/libstdc++.so.6.0.21 /usr/lib64
+```
 
 #### https://github.com/kylebarron/stata-png-fix
 #### require libpng16.so.16 to address the libpng error
@@ -77,3 +81,9 @@ for specific provisioning parts:<br/>
 `$vagrant provision --provision-with main`<br/>
 `$vagrant provision --provision-with update`<br/>
 
+#### Running Ansible Playbook on localhost prompt for sudo 
+```
+$ansible-playbook playbook_localhost.yml -kK
+SSH password:
+BECOME password[defaults to SSH password]:
+```
