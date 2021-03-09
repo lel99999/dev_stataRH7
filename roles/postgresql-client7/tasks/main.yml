@@ -1,9 +1,9 @@
 ---
-- name: Make sure latest EPEL repo is installed
-  yum:
-    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    state: latest
-    disable_gpg_check: yes
+#- name: Make sure latest EPEL repo is installed
+#  yum:
+#    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#    state: latest
+#    disable_gpg_check: yes
 
 #- name: Install postgres repository for 9.4
 #  yum:
@@ -14,7 +14,7 @@
 - name: Install postgres 9.4 packages on RHEL 7
   yum:
     name: "{{ item }}"
-    state: present
+    state: absent
   with_items:
     - rh-postgresql94
     - rh-postgresql94-runtime
@@ -35,7 +35,7 @@
 - name: Install postgres 9.6 packages on RHEL 7
   yum:
     name: "{{ item }}"
-    state: present
+    state: absent
   with_items:
     - postgresql96
     - postgresql96-libs
@@ -61,6 +61,14 @@
     - postgresql10-devel
     - postgresql10-docs
     - postgresql10-contrib
+
+- name: create symlink /usr/pgsql -> /usr/pgsql-10
+  file:
+    src: /usr/pgsql-10
+    dest: /usr/pgsql
+    state: link
+  tags:
+    - postgres_client
 
 - name: Install postgres repository
   yum:
@@ -90,27 +98,28 @@
   tags:
     - postgres_client
 
-- name: Add 94 yum repo
-  yum_repository:
-    name: postgres94
-    description: postgresql 94 repo for RHEL 7
-    baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/
+## Repo/Packages for 9.4 Not Available anymore
+#- name: Add 94 yum repo
+#  yum_repository:
+#    name: postgres94
+#    description: postgresql 94 repo for RHEL 7
+#    baseurl: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/
 
-- name: Install postgres packages
-  yum:
-    name: "{{ item }}"
-    state: present
-#   state: latest
-    disable_gpg_check: yes
-  with_items: "{{ postgres_packages }}"
-  tags:
-    - postgres_client
+#- name: Install postgres packages
+#  yum:
+#    name: "{{ item }}"
+#    state: present
+##   state: latest
+#    disable_gpg_check: yes
+#  with_items: "{{ postgres_packages }}"
+#  tags:
+#    - postgres_client
 
 - name: Install gis postgres packages
   yum:
     name: "{{ item }}"
-#   state: present
-    state: latest
+    state: present
+#   state: latest
     disable_gpg_check: yes
   with_items: "{{ postgres_gis_packages }}"
   ignore_errors: True
@@ -122,28 +131,30 @@
     path: /usr/include/pgsql
   register: lpgsqlinclude
 
-- name: Ensure other libraries can see header files
-  file:
-    src: "{{ postgres_install_dir }}/include/"
-    dest: /usr/include/pgsql
-    state: link
-  tags:
-    - postgres_client
-  when: lpgsqlinclude.stat.exists == false
+# Error for /usr/pgsql-9.4/include
+#- name: Ensure other libraries can see header files
+#  file:
+#    src: "{{ postgres_install_dir }}/include/"
+#    dest: /usr/include/pgsql
+#    state: link
+#  tags:
+#    - postgres_client
+#  when: lpgsqlinclude.stat.exists == false
 
 - name: Check if lib link exists
   stat:
     path: /usr/include/pgsql
   register: lpgsqllib
 
-- name: Ensure other libraries can see library files
-  file:
-    src: "{{ postgres_install_dir }}/lib"
-    dest: /usr/lib/pgsql
-    state: link
-  tags:
-    - postgres_client
-  when: lpgsqllib.stat.exists == false
+# Error for /usr/pgsql-9.4/include
+#- name: Ensure other libraries can see library files
+#  file:
+#    src: "{{ postgres_install_dir }}/lib"
+#    dest: /usr/lib/pgsql
+#    state: link
+#  tags:
+#    - postgres_client
+#  when: lpgsqllib.stat.exists == false
 
 - name: Add psql bin directory to path
   template:
@@ -153,10 +164,11 @@
   tags:
     - postgres_client
 
-- name: Create a symlink that can remain constant during upgrades
-  file:
-    src: "{{ postgres_install_dir }}"
-    dest: /usr/pgsql
-    state: link
-  tags:
-    - postgres_client
+# Error for /usr/pgsql-9.4
+#- name: Create a symlink that can remain constant during upgrades
+#  file:
+#    src: "{{ postgres_install_dir }}"
+#    dest: /usr/pgsql
+#    state: link
+#  tags:
+#    - postgres_client
