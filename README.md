@@ -87,3 +87,10 @@ $ansible-playbook playbook_localhost.yml -kK
 SSH password:
 BECOME password[defaults to SSH password]:
 ```
+
+#### Fixing permission issues with STATATMP - change rwx permissions, set sticky bit
+```
+$sudo chmod -R 777 /STATATMP
+$sudo chmod o+t /STATATMP
+```
+
