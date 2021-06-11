@@ -94,3 +94,18 @@ $sudo chmod -R 777 /STATATMP
 $sudo chmod o+t /STATATMP
 ```
 
+#### Notes for updating to STATA v17
+```
+$cd /usr/local/stata17
+$mv stata.lic stata.lic.bak
+$./stinit
+
+## Follow instructions to initialize new license
+$chmod 644 stata.lic
+
+## launch Stata
+$update query
+```
+
+
+
