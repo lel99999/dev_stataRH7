@@ -95,6 +95,8 @@ $sudo chmod o+t /STATATMP
 ```
 
 #### Notes for updating to STATA v17
+[Stata v17 Update URL](https://www.stata.com/support/updates/stata17/stata17update_linux64.tar) <br/>
+
 ```
 $cd /usr/local/stata17
 $mv stata.lic stata.lic.bak
