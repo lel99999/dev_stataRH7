@@ -38,10 +38,10 @@
 #     yum:
 #       name: "@X Window System"
 #       state: present 
-#   - name: Install wget
-#     yum:
-#       name: wget
-#       state: present
+    - name: Install wget
+      yum:
+        name: wget
+        state: present
 #   - name: Install Latest EPEL
 #     shell:  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -O /tmp/epel-release-latest-7.noarch.rpm
 #   - name: Install epel
