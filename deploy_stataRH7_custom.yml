@@ -56,11 +56,12 @@
 #   - epel7
 #   - python2RH7
 #   - python3RH7
+#   - postgresql-client7
     - devtools7
 #   - stataRH7
     - r_RH7
 #   - r-studio-desktopRH7
-    - stattransfer14
+#   - stattransfer14
 
   post_tasks:
 #   - name: register mime types
