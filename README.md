@@ -109,5 +109,14 @@ $chmod 644 stata.lic
 $update query
 ```
 
-
+#### Using with JDBC
+- Make sure to add jdbc jar to adopath <br/>
+  In STATA: <br/>
+  ```
+  local jar "postgresql42.3.3.jar"
+  local driverc "org.postgresql.Driver"
+  local url "jdbc:postgresql://<hostname>/<database>"
+  jdbc connect jar("`jar'") driverclass("`driverc'") url("`url'") user("<username>") password("<password>")
+  jdbc showtables/exec("<SQL>")
+  ```
 
