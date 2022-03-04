@@ -105,6 +105,7 @@ $./stinit
 ## Follow instructions to initialize new license
 $chmod 644 stata.lic
 
+## This should also address log4j vulnerabilities with Feb/22 Update
 ## launch Stata - check for updates
 $update query
 
