@@ -105,8 +105,12 @@ $./stinit
 ## Follow instructions to initialize new license
 $chmod 644 stata.lic
 
-## launch Stata
+## launch Stata - check for updates
 $update query
+
+## if update package is available
+$update all
+
 ```
 
 
