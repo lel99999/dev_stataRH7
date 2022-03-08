@@ -123,5 +123,8 @@ $update all
   local url "jdbc:postgresql://<hostname>/<database>"
   jdbc connect jar("`jar'") driverclass("`driverc'") url("`url'") user("<username>") password("<password>")
   jdbc showtables/exec("<SQL>")
+  
+  jdbc load table("<tablename>") 
+  jdbc load, exec("`SQL'")
   ```
 
