@@ -125,6 +125,7 @@ $update all
   jdbc showtables/exec("<SQL>")
 
   jdbc describe <table>
-  jdbc load, exec("SQL") clear
+  jdbc load table("<tablename>") 
+  jdbc load, exec("`SQL'")
   ```
 
