@@ -1,6 +1,20 @@
 # dev_stataRH7
 Stata 16 deployment and development on RH7
 
+#### Passing Values by Reference like Usernames/Passwords
+- Create a file to save your username and password <br/>
+```
+local myuid MyUserID
+local mypwd MyPassword
+```
+
+- Reference the file in Stata <br/>
+```
+quietly include ~/<filename_with_info>
+
+uid(`myuid;) password(`mypwd')
+```
+
 ## Additional configuration steps required:
 ### Update gcc
 `$curl https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2 -O`<br/>
